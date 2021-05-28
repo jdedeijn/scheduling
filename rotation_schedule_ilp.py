@@ -21,8 +21,8 @@ from ortools.linear_solver import pywraplp
 
 # Load schedule of matches
 match_team = np.zeros((5, 8, 10))
-csv_path = os.path.join(os.path.dirname(__file__), "matches.csv")
-matches = np.loadtxt(csv_path, delimiter=",").astype(int)
+path = os.path.join(os.path.dirname(__file__), "data", "matches.txt")
+matches = np.loadtxt(path, delimiter="\t").astype(int)
 for i, j, t in matches:
     match_team[i, j, t-1] = 1  # team t plays in match i in round j
 
