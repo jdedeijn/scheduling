@@ -48,10 +48,6 @@ for k, t in product(range(8), range(10)):
                        if match_team[i, j, t] == 1]
     solver.Add(sum(constraint_expr) == 1)
 
-# Define objective
-obj_expr = [x[i][j][k] for i, j, k in product(range(5), range(8), range(8))]
-solver.Minimize(solver.Sum(obj_expr))
-
 # Solve
 status = solver.Solve()
 if status == pywraplp.Solver.OPTIMAL:
